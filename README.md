@@ -1,7 +1,6 @@
-validacao_calculo_nf
+Projeto de validação de cálculo de notas fiscais
 ====================
 
-Projeto de validação de cálculo de notas fiscais
 
 Instalação
 
