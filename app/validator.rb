@@ -5,15 +5,19 @@ class Validator
 
   ENTRY_FILENAME = "../csv_files/entry.csv"
   RULE_FILENAME = "../csv_files/rules.csv"
+
   def check
     lines = []
     load_invoices.each do |invoice|
       load_rules.each do |rule|
+        puts invoice.number
+        puts rule.number
         if invoice.match?(rule)
           value_tax = Calculator.calculate_value_tax(invoice.value, rule.aliquot)
           result = value_tax == format("%.2f",invoice.value_tax) ? 'S' : 'N'
           lines << [invoice.number, rule.number, result]
-          CsvWriter.write_csv_output(lines) 
+          CsvWriter.write_csv_output(lines)
+          break #If match with rule, go to next invoice
         end
       end
     end
