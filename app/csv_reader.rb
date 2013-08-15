@@ -8,7 +8,7 @@ class CsvReader
     CSV.foreach(csv_filename, headers: true) do |row|
       invoices <<  Invoice.new(row["NUMERO"],row["OPERACAO"],row["CLASSIFICACAO"],row["VALOR"],row["VALOR_IMPOSTO"])
     end
-    invoices 
+    invoices
   end
 
   def read_csv_rules(csv_filename)

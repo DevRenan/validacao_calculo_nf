@@ -10,8 +10,6 @@ class Validator
     lines = []
     load_invoices.each do |invoice|
       load_rules.each do |rule|
-        puts invoice.number
-        puts rule.number
         if invoice.match?(rule)
           value_tax = Calculator.calculate_value_tax(invoice.value, rule.aliquot)
           result = value_tax == format("%.2f",invoice.value_tax) ? 'S' : 'N'
